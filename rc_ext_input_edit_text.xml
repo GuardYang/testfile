@@ -1,77 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff"
-    android:orientation="vertical">
-
-    <RelativeLayout
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/rc_ad_ll_file_list_title"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#eb5e3b" >
+        android:orientation="horizontal"
+        android:background="@color/rc_main_theme">
+
+        <ImageView
+            android:id="@+id/rc_ad_iv_file_list_go_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rc_selector_title_back_press"
+            android:src="@drawable/rc_ac_file_preview"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:background="#0083e0" />
 
         <TextView
-            android:id="@id/rc_btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rc_cancel"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="14dp"
-            android:clickable="true"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"/>
-
+            android:id="@+id/rc_ad_tv_file_list_title"
+            android:gravity="center_vertical|left"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:singleLine="true"
+            android:text="@string/rc_ac_file_send_preview"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
         <TextView
+            android:id="@+id/rc_ad_tv_file_list_select_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rc_choose_members"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:layout_gravity="right|center_vertical"
+            android:background="@android:color/transparent"
+            android:paddingRight="10dp"
+            android:textColor="@color/rc_btn_file_list_send"
+            android:textSize="18sp"
+            android:text="@string/rc_ad_send_file_no_select_file"/>
+    </LinearLayout>
 
-    </RelativeLayout>
-
-    <LinearLayout
-        android:focusable="true" android:focusableInTouchMode="true"
-        android:layout_width="0px" android:layout_height="0px"/>
-
-    <EditText
-        android:id="@id/rc_edit_text"
+    <!--当前文件夹directory下的文件列表,如果没有文件应该隐藏此view,显示"文件内容为空"的view-->
+    <ListView
+        android:id="@+id/rc_fm_lv_storage_folder_list_files"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/rc_search"
-        android:singleLine="true"
-        android:textSize="14sp" />
+        android:layout_height="match_parent"
+        android:scrollbars="none" />
 
+    <!--当前目录下内容为空或者加载文件目录时显示加载中-->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ListView
-            android:id="@id/rc_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:id="@+id/rc_fm_ll_storage_folder_list_load"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:visibility="gone"
             android:layout_gravity="center"
-            android:divider="@null">
-        </ListView>
-
+            android:background="#66000000"
+            android:orientation="vertical" >
+            <ProgressBar
+                android:id="@+id/rc_fm_pb_storage_folder_list_load_progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="28dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"/>
+            <TextView
+                android:id="@+id/rc_fm_tv_storage_folder_list_load_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="15sp"
+                android:textColor="#ffffff"
+                android:text="@string/rc_fr_loading_file_message" />
+        </LinearLayout>
         <TextView
-            android:id="@+id/rc_popup_bg"
-            android:layout_width="80.0dip"
-            android:layout_height="80.0dip"
+            android:id="@+id/rc_fm_tv_no_file_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/rc_bg_toast"
-            android:textColor="#ffffffff"
-            android:textSize="30.0dip"
-            android:visibility="invisible" />
-
-        <io.rong.imkit.mention.SideBar
-            android:id="@+id/rc_sidebar"
-            android:layout_width="20.0dip"
-            android:layout_height="fill_parent"
-            android:layout_gravity="right|center" />
+            android:textSize="20sp"
+            android:visibility="gone"/>
     </FrameLayout>
+
 </LinearLayout>
