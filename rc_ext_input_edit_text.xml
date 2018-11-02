@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#0195ff" >
+        android:background="#eb5e3b" >
 
         <TextView
             android:id="@id/rc_btn_cancel"
