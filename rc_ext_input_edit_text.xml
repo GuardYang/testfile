@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@android:color/white"
     android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/rc_ad_ll_file_list_title"
@@ -23,7 +24,7 @@
             android:layout_height="24dp"
             android:layout_marginBottom="12dp"
             android:layout_marginTop="12dp"
-            android:background="#0083e0" />
+            android:background="#ffffff" />
 
         <TextView
             android:id="@+id/rc_ad_tv_file_list_title"
@@ -43,7 +44,7 @@
             android:layout_gravity="right|center_vertical"
             android:background="@android:color/transparent"
             android:paddingRight="10dp"
-            android:textColor="@color/rc_btn_file_list_send"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:text="@string/rc_ad_send_file_no_select_file"/>
     </LinearLayout>
