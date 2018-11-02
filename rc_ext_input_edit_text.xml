@@ -1,56 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@id/rc_layout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@android:color/white">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/rc_title"
-        style="@style/RCTheme.Message.TextView"
-        android:layout_width="250dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#0195ff" >
+
+        <TextView
+            android:id="@id/rc_btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rc_cancel"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:clickable="true"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rc_choose_members"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:focusable="true" android:focusableInTouchMode="true"
+        android:layout_width="0px" android:layout_height="0px"/>
+
+    <EditText
+        android:id="@id/rc_edit_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="5dp"
-        android:background="@android:color/transparent"
-        android:ellipsize="end"
-        android:gravity="center_vertical|left"
-        android:maxLines="4"
-        tools:text="Title" />
+        android:hint="@string/rc_search"
+        android:singleLine="true"
+        android:textSize="14sp" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <io.rong.imkit.widget.AsyncImageView
-        android:id="@+id/rc_img"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/rc_title"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="3dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="2dp"
-        android:layout_toRightOf="@id/rc_content"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/fenxiang_shequ"
-        app:RCDefDrawable="@drawable/fenxiang_shequ" />
+        <ListView
+            android:id="@id/rc_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:divider="@null">
+        </ListView>
 
-    <TextView
-        android:id="@+id/rc_content"
-        style="@style/RCTheme.Message.RichContent.TextView"
-        android:layout_width="167dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rc_title"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="3dp"
-        android:background="@android:color/transparent"
-        android:ellipsize="end"
-        android:gravity="left"
-        android:maxLines="4"
-        android:paddingBottom="6dp"
-        tools:text="Content" />
+        <TextView
+            android:id="@+id/rc_popup_bg"
+            android:layout_width="80.0dip"
+            android:layout_height="80.0dip"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/rc_bg_toast"
+            android:textColor="#ffffffff"
+            android:textSize="30.0dip"
+            android:visibility="invisible" />
 
-
-</RelativeLayout>
+        <io.rong.imkit.mention.SideBar
+            android:id="@+id/rc_sidebar"
+            android:layout_width="20.0dip"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+</LinearLayout>
