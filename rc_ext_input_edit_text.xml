@@ -3,52 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@id/rc_layout"
-    android:layout_width="231dp"
-    android:layout_height="126dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@android:color/white">
 
     <TextView
         android:id="@+id/rc_title"
         style="@style/RCTheme.Message.TextView"
-        android:layout_width="244dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="5dp"
         android:background="@android:color/transparent"
         android:ellipsize="end"
         android:gravity="center_vertical|left"
-        android:lines="2"
+        android:maxLines="4"
         tools:text="Title" />
 
 
     <io.rong.imkit.widget.AsyncImageView
         android:id="@+id/rc_img"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/rc_title"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="3dp"
         android:layout_marginTop="3dp"
+        android:layout_marginBottom="2dp"
         android:layout_toRightOf="@id/rc_content"
         android:background="@android:color/transparent"
-        android:scaleType="center"
-        android:src="@drawable/rc_ic_def_rich_content"
-        app:RCDefDrawable="@drawable/rc_ic_def_rich_content" />
+        android:scaleType="fitCenter"
+        android:src="@drawable/fenxiang_shequ"
+        app:RCDefDrawable="@drawable/fenxiang_shequ" />
 
     <TextView
         android:id="@+id/rc_content"
         style="@style/RCTheme.Message.RichContent.TextView"
-        android:layout_width="177dp"
+        android:layout_width="167dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rc_title"
-        android:layout_marginLeft="12dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="3dp"
         android:background="@android:color/transparent"
         android:ellipsize="end"
         android:gravity="left"
-        android:lines="3"
-        android:paddingBottom="9dp"
+        android:maxLines="4"
+        android:paddingBottom="6dp"
         tools:text="Content" />
 
 
